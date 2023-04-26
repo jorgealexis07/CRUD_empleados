@@ -149,3 +149,8 @@ C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\
 C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Empleadoes\Details.cshtml.g.cs
 C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Empleadoes\Edit.cshtml.g.cs
 C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Empleadoes\Index.cshtml.g.cs
+C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Estatus\Create.cshtml.g.cs
+C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Estatus\Delete.cshtml.g.cs
+C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Estatus\Details.cshtml.g.cs
+C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Estatus\Edit.cshtml.g.cs
+C:\Users\lenovo\source\repos\ABC_Empleados\ABC_Empleados\obj\Debug\net5.0\Razor\Views\Estatus\Index.cshtml.g.cs
