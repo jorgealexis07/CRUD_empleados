@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ABC_Empleados.Data;
 using ABC_Empleados.Models;
 
 namespace ABC_Empleados.Controllers
 {
     public class EstatusController : Controller
     {
-        private readonly CRUDEMPLEADOSContext _context;
+        private readonly ABC_EmpleadosContext _context;
 
-        public EstatusController(CRUDEMPLEADOSContext context)
+        public EstatusController(ABC_EmpleadosContext context)
         {
             _context = context;
         }
@@ -21,7 +22,7 @@ namespace ABC_Empleados.Controllers
         // GET: Estatus
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Estatuses.ToListAsync());
+            return View(await _context.Estatus.ToListAsync());
         }
 
         // GET: Estatus/Details/5
@@ -32,7 +33,7 @@ namespace ABC_Empleados.Controllers
                 return NotFound();
             }
 
-            var estatus = await _context.Estatuses
+            var estatus = await _context.Estatus
                 .FirstOrDefaultAsync(m => m.EstatusId == id);
             if (estatus == null)
             {
@@ -72,7 +73,7 @@ namespace ABC_Empleados.Controllers
                 return NotFound();
             }
 
-            var estatus = await _context.Estatuses.FindAsync(id);
+            var estatus = await _context.Estatus.FindAsync(id);
             if (estatus == null)
             {
                 return NotFound();
@@ -123,7 +124,7 @@ namespace ABC_Empleados.Controllers
                 return NotFound();
             }
 
-            var estatus = await _context.Estatuses
+            var estatus = await _context.Estatus
                 .FirstOrDefaultAsync(m => m.EstatusId == id);
             if (estatus == null)
             {
@@ -138,15 +139,16 @@ namespace ABC_Empleados.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var estatus = await _context.Estatuses.FindAsync(id);
-            _context.Estatuses.Remove(estatus);
+            var estatus = await _context.Estatus.FindAsync(id);
+            _context.Estatus.Remove(estatus);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EstatusExists(int id)
         {
-            return _context.Estatuses.Any(e => e.EstatusId == id);
+            return _context.Estatus.Any(e => e.EstatusId == id);
         }
+
     }
 }

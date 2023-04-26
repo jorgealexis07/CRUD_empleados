@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ABC_Empleados.Data;
 
 namespace ABC_Empleados
 {
@@ -30,6 +31,9 @@ namespace ABC_Empleados
     options.UseSqlServer(Configuration.GetConnectionString("conexion")));
 
             services.AddControllersWithViews();
+
+            services.AddDbContext<ABC_EmpleadosContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ABC_EmpleadosContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

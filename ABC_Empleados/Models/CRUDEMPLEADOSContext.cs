@@ -24,8 +24,8 @@ namespace ABC_Empleados.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//               optionsBuilder.UseSqlServer("server=DESKTOP-671DNAK\\SQLEXPRESS; database=CRUDEMPLEADOS; integrated security=true;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("server=DESKTOP-671DNAK\\SQLEXPRESS; database=CRUDEMPLEADOS; integrated security=true;");
             }
         }
 
@@ -35,8 +35,6 @@ namespace ABC_Empleados.Models
 
             modelBuilder.Entity<Empleado>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.ApellidoMaterno)
                     .HasMaxLength(50)
                     .IsUnicode(false)
@@ -60,7 +58,7 @@ namespace ABC_Empleados.Models
                 entity.HasOne(d => d.Estatus)
                     .WithMany(p => p.Empleados)
                     .HasForeignKey(d => d.EstatusId)
-                    .HasConstraintName("FK__Empleados__Estat__3A81B327");
+                    .HasConstraintName("FK__Empleados__Estat__3D5E1FD2");
             });
 
             modelBuilder.Entity<Estatus>(entity =>
