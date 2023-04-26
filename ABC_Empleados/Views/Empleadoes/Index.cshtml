@@ -56,6 +56,11 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.EstatusId)
+                            @{
+                                var nombre = (item.EstatusId == 0) ? "Inactivo" : "Activo";
+                            }
+                            @nombre
+
                         </td>
                         <td>
                             <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
