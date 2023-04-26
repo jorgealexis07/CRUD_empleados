@@ -13,6 +13,8 @@ namespace ABC_Empleados
     {
         public static void Main(string[] args)
         {
+           // CreateHostBuilder(args).ConfigureServices.AddDbContext<CRUDEMPLEADOSContext>(options =>
+      // options.UseSqlServer(Configuration.GetConnectionString("conexion")));
             CreateHostBuilder(args).Build().Run();
         }
 
