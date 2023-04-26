@@ -61,6 +61,10 @@ namespace ABC_Empleados
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                
+                endpoints.MapControllerRoute(
+                    name: "search",
+                    pattern: "{controller=Empleados}/{action=Search}/{searchString?}");
             });
         }
     }

@@ -6,70 +6,63 @@
 
 <h1>ABC de Empleados</h1>
 
-<form asp-action="Search" method="get">
-    <div class="form-group">
-        <div class="input-group">
-            <input type="text" name="searchString" />
-            <button type="submit" class="btn btn-light">Buscar</button>
-        </div>
-    </div>
-</form>
-
 
 <p>
-    <a asp-action="Create">Crear Nuevo</a>
+    <a asp-action="Create" class="btn btn-success">Crear Nuevo</a>
 </p>
-<ul>
-    @foreach (var empleado in Model)
-    {
-        <li>@empleado.Nombre</li>
-    }
-</ul>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApellidoPaterno)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApellidoMaterno)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaNacimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estatus)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApellidoPaterno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApellidoMaterno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaNacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estatus.EstatusId)
-            </td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Seleccione</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Limpiar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<form asp-controller="Empleadoes" asp-action="Index">
+    <p>
+        Buscar por numero de empleado: <input type="text" name="buscar" class="form-text" />
+        <input type="submit" values="Buscar" class="btn btn-sm btn-dark"  />
+    </p>
+</form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApellidoPaterno)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApellidoMaterno)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaNacimiento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Estatus)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estatus.EstatusId)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Seleccione</a> |
+                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Limpiar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>

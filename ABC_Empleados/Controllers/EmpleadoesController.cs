@@ -35,22 +35,22 @@ namespace ABC_Empleados.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Search(string searchString)
-        {
-            // Procesar la búsqueda y obtener los resultados
-            var results = _context.Empleados.Where(e => e.Nombre.Contains(searchString)).ToList();
-
-            // Pasar los resultados a la vista
-            return View("SearchResults", results);
-        }
-
 
         // GET: Empleadoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscar)
         {
-            var cRUDEMPLEADOSContext = _context.Empleados.Include(e => e.Estatus);
+            var empleadoes = from empleado in _context.Empleados select empleado;
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                int idBuscado;
+                if (int.TryParse(buscar, out idBuscado))
+                {
+                    empleadoes = empleadoes.Where(s => s.Id == idBuscado);
+                }
+            }
+            //var cRUDEMPLEADOSContext = _context.Empleados.Include(e => e.Estatus);
 
-            return View(await cRUDEMPLEADOSContext.ToListAsync());
+            return View(await empleadoes.ToListAsync());
         }
 
         // GET: Empleadoes/Details/5
