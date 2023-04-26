@@ -30,13 +30,13 @@ namespace ABC_Empleados.Models
 
         public virtual Estatus Estatus { get; set; }
 
-        public string EstatusEmpleado
-        {
-            get
-            {
-                return EstatusId == 1 ? "Activo" : "No Activo";
-            }
-        }
+        //public string EstatusEmpleado
+        //{
+        //    get
+        //    {
+        //        return EstatusId == 1 ? "Activo" : "No Activo";
+        //    }
+        //}
 
        
 
