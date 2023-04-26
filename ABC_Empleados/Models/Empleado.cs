@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
-#nullable disable
 
 namespace ABC_Empleados.Models
 {
@@ -27,5 +29,16 @@ namespace ABC_Empleados.Models
         public int? EstatusId { get; set; }
 
         public virtual Estatus Estatus { get; set; }
-    }
+
+        public string EstatusEmpleado
+        {
+            get
+            {
+                return EstatusId == 1 ? "Activo" : "No Activo";
+            }
+        }
+
+       
+
+     }
 }

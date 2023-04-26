@@ -6,9 +6,25 @@
 
 <h1>ABC de Empleados</h1>
 
+<form asp-action="Search" method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" name="searchString" />
+            <button type="submit" class="btn btn-light">Buscar</button>
+        </div>
+    </div>
+</form>
+
+
 <p>
     <a asp-action="Create">Crear Nuevo</a>
 </p>
+<ul>
+    @foreach (var empleado in Model)
+    {
+        <li>@empleado.Nombre</li>
+    }
+</ul>
 <table class="table">
     <thead>
         <tr>
@@ -50,7 +66,7 @@
             </td>
             <td>
                 <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Seleccione</a> |
                 <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Limpiar</a>
             </td>
         </tr>

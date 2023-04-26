@@ -18,10 +18,38 @@ namespace ABC_Empleados.Controllers
             _context = context;
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> CambiarEstatus(int id, int estatusId)
+        {
+            var entidad = await _context.Empleados.FindAsync(id);
+            if (entidad == null)
+            {
+                return NotFound();
+            }
+
+            entidad.EstatusId = estatusId;
+            _context.Update(entidad);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Search(string searchString)
+        {
+            // Procesar la búsqueda y obtener los resultados
+            var results = _context.Empleados.Where(e => e.Nombre.Contains(searchString)).ToList();
+
+            // Pasar los resultados a la vista
+            return View("SearchResults", results);
+        }
+
+
         // GET: Empleadoes
         public async Task<IActionResult> Index()
         {
             var cRUDEMPLEADOSContext = _context.Empleados.Include(e => e.Estatus);
+
             return View(await cRUDEMPLEADOSContext.ToListAsync());
         }
 
